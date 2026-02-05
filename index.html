@@ -843,6 +843,15 @@
   cursor:pointer;
 }
 
+    /* ---- Full-screen centered stage for the big photo ---- */
+.photoStage{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0;
+}
+
 
   </style>
 </head>
@@ -1043,15 +1052,16 @@
   </div>
 </div>
 
-    </section>
-
-    <section class="photoCard reveal" id="queen">
-  <div class="photoTitle">האשה הכי יפה בעולם</div>
-  <div class="photoFrame">
-    <img src="assets/19.jpg" alt="האשה הכי יפה בעולם"
-         onerror="this.closest('.photoCard').style.display='none';">
+    <section class="photoStage" id="queen">
+  <div class="photoCard reveal">
+    <div class="photoTitle">האשה הכי יפה בעולם</div>
+    <div class="photoFrame">
+      <img src="assets/19.JPG" alt="האשה הכי יפה בעולם"
+           onerror="this.closest('.photoStage').style.display='none';">
+    </div>
   </div>
 </section>
+
 
     <section class="valWrap reveal" id="valentine">
   <div class="valInner">
