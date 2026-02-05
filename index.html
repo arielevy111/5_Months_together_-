@@ -483,6 +483,44 @@
   margin: 6px 0;
 }
 
+    /* ---- Center statement (mid-page hero) ---- */
+.midBanner{
+  margin: 16px 0;
+  padding: 22px 16px;
+  border-radius: 28px;
+  background: linear-gradient(90deg,
+    rgba(255,77,141,.16),
+    rgba(139,92,246,.14),
+    rgba(34,211,238,.12),
+    rgba(255,209,102,.12));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 24px 70px rgba(0,0,0,.50);
+  backdrop-filter: blur(14px);
+  text-align:center;
+  position: relative;
+  overflow:hidden;
+}
+.midBanner::before{
+  content:"";
+  position:absolute; inset:-80px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.10), transparent 45%),
+              radial-gradient(circle at 70% 60%, rgba(255,255,255,.08), transparent 50%);
+  filter: blur(12px);
+  animation: shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%,100%{ transform: translateX(-1%) translateY(-1%); opacity:.85; }
+  50%{ transform: translateX(2%) translateY(1%); opacity:1; }
+}
+.midText{
+  position: relative;
+  z-index:1;
+  font-size: clamp(20px, 3.6vw, 34px);
+  font-weight: 1100;
+  letter-spacing: .2px;
+  line-height: 1.25;
+}
+
   </style>
 </head>
 
@@ -499,6 +537,7 @@
         <a class="chip" href="#words">מילים</a>
         <a class="chip" href="#valentine">יום אהבה</a>
         <a class="chip" href="#feelings">מה אני מרגיש</a>
+        <a class="chip" href="#midline">😛</a>
       </nav>
     </div>
   </div>
@@ -521,6 +560,12 @@
         <button class="btn secondary" onclick="document.querySelector('#valentine').scrollIntoView({behavior:'smooth'})">ושאלה ל־14/2</button>
       </div>
     </section>
+
+    <section class="midBanner reveal" id="midline">
+  <div class="midText">
+    <span class="accent">Tu es foll, ma vie</span> 💛
+  </div>
+</section>
 
     <section class="section">
       <div class="card reveal" id="words">
@@ -625,10 +670,6 @@
       את לא לבד. אני איתך.
     </div>
   </div>
-</div>
-
-      <div class="line" style="margin-top:10px; font-weight:1100;">
-  <span class="accent">Tu es folle, ma vie</span> ❤️
 </div>
 
     </section>
