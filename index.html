@@ -679,6 +679,170 @@
   }
 }
 
+    /* ===== Valentine Finale (Gold) ===== */
+.valWrap{
+  margin-top: 14px;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255,209,102,.22);
+  box-shadow: 0 28px 90px rgba(0,0,0,.60);
+  background: linear-gradient(135deg,
+    rgba(255,209,102,.22),
+    rgba(255,183,3,.10),
+    rgba(255,209,102,.08));
+  position: relative;
+}
+
+.valWrap::before{
+  content:"";
+  position:absolute; inset:-140px;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255,242,178,.30), transparent 45%),
+    radial-gradient(circle at 70% 35%, rgba(255,209,102,.22), transparent 52%),
+    radial-gradient(circle at 35% 80%, rgba(255,183,3,.18), transparent 55%);
+  filter: blur(16px);
+  opacity: .95;
+  animation: goldDrift 7s ease-in-out infinite;
+}
+@keyframes goldDrift{
+  0%,100%{ transform: translate3d(-1%, -1%, 0); }
+  50%{ transform: translate3d(2%, 1%, 0); }
+}
+
+.valInner{
+  position: relative;
+  z-index: 1;
+  padding: 18px;
+}
+
+.valTop{
+  text-align:center;
+  padding: 6px 6px 12px;
+}
+
+.valTitle{
+  margin: 10px 0 8px;
+  font-size: clamp(24px, 5.2vw, 44px);
+  font-weight: 1100;
+  letter-spacing: .2px;
+  line-height: 1.05;
+  color: rgba(255,255,255,.96);
+}
+
+.valSub{
+  margin: 0 auto;
+  width: min(900px, 92vw);
+  color: rgba(255,244,200,.82);
+  font-weight: 850;
+  line-height: 1.9;
+}
+
+.countdown{
+  margin: 14px auto 0;
+  width: min(820px, 92vw);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+@media (max-width: 520px){
+  .countdown{ grid-template-columns: repeat(2, 1fr); }
+}
+
+.cdItem{
+  border-radius: 18px;
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,209,102,.18);
+  padding: 12px 10px;
+  text-align:center;
+}
+.cdNum{
+  font-size: 26px;
+  font-weight: 1100;
+  color: rgba(255,242,178,.95);
+  line-height: 1;
+}
+.cdLbl{
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-weight: 900;
+  color: rgba(255,244,200,.72);
+  letter-spacing: .2px;
+}
+
+.valChoices{
+  margin-top: 14px;
+  display:flex;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+
+.valChoice{
+  flex: 1 1 240px;
+  text-align:right;
+  cursor:pointer;
+  border-radius: 22px;
+  padding: 14px;
+  border: 1px solid rgba(255,209,102,.20);
+  background: rgba(0,0,0,.18);
+  box-shadow: 0 18px 44px rgba(0,0,0,.35);
+  transition: transform .14s ease, background .14s ease;
+  font-weight: 1100;
+  color: rgba(255,255,255,.92);
+}
+.valChoice:hover{
+  transform: translateY(-3px);
+  background: rgba(0,0,0,.24);
+}
+.valChoice small{
+  display:block;
+  margin-top: 6px;
+  color: rgba(255,244,200,.74);
+  font-weight: 850;
+  line-height: 1.55;
+}
+
+.valResult{
+  display:none;
+  margin-top: 14px;
+  border-radius: 22px;
+  padding: 14px;
+  border: 1px solid rgba(255,209,102,.20);
+  background: rgba(0,0,0,.18);
+}
+
+.valRow{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  margin-top: 10px;
+}
+
+.btnGold{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-weight: 1100;
+  color: #0b0b0f;
+  background: linear-gradient(90deg, #fff2b2, #ffd166, #ffb703);
+  box-shadow: 0 18px 44px rgba(255,209,102,.18);
+  transition: transform .12s ease;
+  border: 0;
+}
+.btnGold:hover{ transform: translateY(-2px); }
+
+.btnGlass{
+  border: 1px solid rgba(255,209,102,.22);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-weight: 1100;
+  cursor:pointer;
+}
+
 
   </style>
 </head>
@@ -889,37 +1053,56 @@
   </div>
 </section>
 
-    <section class="card reveal" id="valentine" style="margin-top:14px;">
-      <div class="pill">שאלה קצרה 🎮</div>
-      <h2 class="cardTitle" style="margin-top:10px;"><span class="dot"></span> שבת הבאה — יום אהבה (14/2)</h2>
-
-      <p class="subtitle" style="margin:0;">
-        עוד לא מספר את כל הפרטים… אבל בא לי שזה יהיה יום שלנו ביחד.<br/>
-        תבחרי אופציה, וזה יפתח לך וואטסאפ עם “כן” מוכן לשליחה אליי 😌
-      </p>
-
-      <div class="choices">
-        <button class="choice" data-choice="A">
-          כן אני רוצה 💛
-          <small>תכנן לנו משהו יפה ואני איתך</small>
-        </button>
-        <button class="choice" data-choice="B">
-          כן אבל רק אם זה הפתעה 😈
-          <small>אל תגלה כלום — תוביל אותי</small>
-        </button>
+    <section class="valWrap reveal" id="valentine">
+  <div class="valInner">
+    <div class="valTop">
+      <div class="pill">הפינאלה 💛</div>
+      <div class="valTitle">יום אהבה — 14/2</div>
+      <div class="valSub">
+        בא לי ששבת הזאת תהיה שלנו.<br/>
+        עוד לא מספר את כל הפרטים — אבל אני כן יודע דבר אחד: אני רוצה אותך איתי.<br/>
+        בחרי אופציה, וזה יפתח לך “כן” מוכן לשליחה אליי בוואטסאפ.
       </div>
 
-      <div class="result" id="resultBox" role="status" aria-live="polite">
-        <div id="resultText" style="font-weight:1000;"></div>
-
-        <div class="row">
-          <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">לשלוח בוואטסאפ עכשיו</a>
-          <button class="copy" id="copyBtn">להעתיק טקסט</button>
-        </div>
-
-        <div id="copied" style="margin-top:10px; font-weight:900; opacity:.85; display:none;">הועתק ✅</div>
+      <div class="countdown" aria-label="ספירה לאחור ליום האהבה">
+        <div class="cdItem"><div class="cdNum" id="cdDays">--</div><div class="cdLbl">ימים</div></div>
+        <div class="cdItem"><div class="cdNum" id="cdHours">--</div><div class="cdLbl">שעות</div></div>
+        <div class="cdItem"><div class="cdNum" id="cdMins">--</div><div class="cdLbl">דקות</div></div>
+        <div class="cdItem"><div class="cdNum" id="cdSecs">--</div><div class="cdLbl">שניות</div></div>
       </div>
-    </section>
+    </div>
+
+    <div class="valChoices">
+      <button class="valChoice" data-v="A">
+        כן אני רוצה 💛
+        <small>שמור לי את התאריך ואני איתך</small>
+      </button>
+
+      <button class="valChoice" data-v="B">
+        כן אבל רק אם זו הפתעה ✨
+        <small>אל תגלה כלום — תדאג להכול</small>
+      </button>
+
+      <button class="valChoice" data-v="C">
+        כן ואני רוצה יום שלם
+        <small>בוקר עד ערב — רק אנחנו</small>
+      </button>
+    </div>
+
+    <div class="valResult" id="valResult" role="status" aria-live="polite">
+      <div id="valResultText" style="font-weight:1100; color: rgba(255,244,200,.92);"></div>
+
+      <div class="valRow">
+        <a class="btnGold" id="valWa" href="#" target="_blank" rel="noopener">לשלוח “כן” בוואטסאפ</a>
+        <a class="btnGlass" id="valIcs" href="#" download="valentine_14-02.ics">להוסיף ליומן</a>
+        <button class="btnGlass" id="valCopy">להעתיק טקסט</button>
+      </div>
+
+      <div id="valCopied" style="margin-top:10px; font-weight:1000; opacity:.85; display:none;">הועתק ✅</div>
+    </div>
+  </div>
+</section>
+
 
     <footer>
       נוצר במיוחד בשבילך 💛
@@ -1002,6 +1185,114 @@
         burstHearts(r.left + r.width/2, r.top + r.height/2);
       });
     });
+    // ===== Valentine logic =====
+const cdDays = document.getElementById("cdDays");
+const cdHours = document.getElementById("cdHours");
+const cdMins = document.getElementById("cdMins");
+const cdSecs = document.getElementById("cdSecs");
+
+function pad(n){ return String(n).padStart(2,"0"); }
+
+// Feb 14, 2026 (local device time)
+const valTarget = new Date(2026, 1, 14, 0, 0, 0);
+
+function tickCountdown(){
+  const now = new Date();
+  let diff = valTarget - now;
+
+  if(diff < 0) diff = 0;
+
+  const totalSec = Math.floor(diff / 1000);
+  const days = Math.floor(totalSec / 86400);
+  const hours = Math.floor((totalSec % 86400) / 3600);
+  const mins = Math.floor((totalSec % 3600) / 60);
+  const secs = totalSec % 60;
+
+  cdDays.textContent = days;
+  cdHours.textContent = pad(hours);
+  cdMins.textContent = pad(mins);
+  cdSecs.textContent = pad(secs);
+}
+tickCountdown();
+setInterval(tickCountdown, 1000);
+
+const valResult = document.getElementById("valResult");
+const valResultText = document.getElementById("valResultText");
+const valWa = document.getElementById("valWa");
+const valCopy = document.getElementById("valCopy");
+const valCopied = document.getElementById("valCopied");
+const valIcs = document.getElementById("valIcs");
+
+function valMessage(v){
+  const base =
+`כן 💛
+אני רוצה ש-14/2 יהיה שלנו
+תדאג להכול ואני איתך`;
+
+  if(v === "A") return base;
+  if(v === "B") return base + "\n(אבל רק אם זו הפתעה ✨)";
+  return base + "\nואני רוצה יום שלם 😌";
+}
+
+function buildWa(msg){
+  return `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
+
+function buildICS(){
+  // All-day event: 2026-02-14
+  const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Valentine//5 months//HE
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:valentine-20260214@local
+DTSTAMP:20260205T000000Z
+DTSTART;VALUE=DATE:20260214
+DTEND;VALUE=DATE:20260215
+SUMMARY:יום אהבה - יום שלנו 💛
+DESCRIPTION:שמרתי לנו את התאריך - 14/2. פרטים בהמשך 😉
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  return URL.createObjectURL(blob);
+}
+valIcs.href = buildICS();
+
+document.querySelectorAll(".valChoice").forEach(btn=>{
+  btn.addEventListener("click", (ev)=>{
+    const v = btn.dataset.v;
+    const msg = valMessage(v);
+
+    valResultText.textContent =
+      (v === "A") ? "סגרנו 💛 נשאר רק ללחוץ ולשלוח"
+      : (v === "B") ? "אוקיי, הפתעה ✨ נשאר רק ללחוץ ולשלוח"
+      : "יום שלם 😌 נשאר רק ללחוץ ולשלוח";
+
+    valWa.href = buildWa(msg);
+
+    valCopy.onclick = async ()=>{
+      try{
+        await navigator.clipboard.writeText(msg);
+        valCopied.style.display = "block";
+        setTimeout(()=> valCopied.style.display = "none", 1400);
+      }catch(e){
+        prompt("העתק את הטקסט:", msg);
+      }
+    };
+
+    valResult.style.display = "block";
+    valResult.scrollIntoView({behavior:"smooth", block:"center"});
+
+    // If you already have burstHearts() from before, call it:
+    if(typeof burstHearts === "function"){
+      const r = btn.getBoundingClientRect();
+      burstHearts(r.left + r.width/2, r.top + r.height/2);
+    }
+  });
+});
+
   </script>
 </body>
 </html>
