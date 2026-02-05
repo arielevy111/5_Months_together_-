@@ -610,6 +610,31 @@
   line-height: 1.2;
 }
 
+    /* ---- Center text card (mobile-safe) ---- */
+.centerCard{
+  width: min(880px, 92vw);
+  margin: 14px auto 0;
+  padding: 16px 14px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  backdrop-filter: blur(14px);
+}
+
+.centerCard p{
+  margin: 0;
+  text-align: center;
+  direction: rtl;
+  unicode-bidi: plaintext;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.9;
+  color: rgba(255,255,255,.82);
+  font-weight: 800;
+  font-size: clamp(14px, 2.4vw, 18px);
+}
+
   </style>
 </head>
 
@@ -639,11 +664,14 @@
         <span class="titleGlow">5 חודשים</span> איתך 💛
       </h1>
 
-     <p class="subtitle">
-  גם אם לא הסתדר שניפגש היום —<br/>
-  לא היה מצב שאני נותן לזה לעבור רגיל.<br/>
-  רציתי שתדעי שאני זוכר, שזה חשוב לי, ושאת חשובה לי באמת.
-</p>
+     <div class="centerCard">
+  <p>
+    גם אם לא הסתדר שניפגש היום <br/>
+    לא היה מצב שאני נותן לזה לעבור רגיל.<br/>
+    רציתי שתדעי שאני זוכר, שזה חשוב לי, ושאת חשובה לי באמת.
+  </p>
+</div>
+
 
 
       <div class="heroCtas">
