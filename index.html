@@ -635,6 +635,51 @@
   font-size: clamp(14px, 2.4vw, 18px);
 }
 
+    /* ---- Big center photo card ---- */
+.photoCard{
+  width: min(980px, 92vw);
+  margin: 16px auto;
+  border-radius: 30px;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 28px 90px rgba(0,0,0,.55);
+  backdrop-filter: blur(14px);
+}
+
+.photoTitle{
+  padding: 16px 16px 10px;
+  text-align: center;
+  font-weight: 1100;
+  font-size: clamp(22px, 4.8vw, 44px);
+  line-height: 1.05;
+  letter-spacing: .2px;
+  color: rgba(255,255,255,.96);
+}
+
+.photoFrame{
+  padding: 0 14px 16px;
+}
+
+.photoFrame img{
+  width: 100%;
+  height: min(70vh, 720px);
+  object-fit: cover;
+  object-position: center;
+  display:block;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* Make portrait look great on phones */
+@media (max-width: 560px){
+  .photoFrame img{
+    height: 72vh;
+    object-position: center 20%;
+  }
+}
+
+
   </style>
 </head>
 
@@ -652,6 +697,7 @@
         <a class="chip" href="#valentine">יום אהבה</a>
         <a class="chip" href="#feelings">מה אני מרגיש</a>
         <a class="chip" href="#midline">😛</a>
+        <a class="chip" href="#queen">המלכה</a>
       </nav>
     </div>
   </div>
@@ -840,6 +886,14 @@
 </div>
 
     </section>
+
+    <section class="photoCard reveal" id="queen">
+  <div class="photoTitle">האשה הכי יפה בעולם</div>
+  <div class="photoFrame">
+    <img src="assets/19.jpg" alt="האשה הכי יפה בעולם"
+         onerror="this.closest('.photoCard').style.display='none';">
+  </div>
+</section>
 
     <section class="card reveal" id="valentine" style="margin-top:14px;">
       <div class="pill">שאלה קצרה 🎮</div>
