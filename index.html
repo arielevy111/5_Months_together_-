@@ -4,209 +4,524 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>5 חודשים ביחד 💛</title>
-  <meta name="description" content="מחווה קטנה ל-5 חודשים + הזמנה ליום האהבה" />
+  <meta name="description" content="מחווה צבעונית ל-5 חודשים + הזמנה ליום האהבה" />
+
   <style>
-  :root{
-    --bg:#ffffff;
-    --text:#121212;
-    --muted:#5a5a5a;
-    --card:#ffffff;
-    --stroke: rgba(0,0,0,.08);
-    --shadow: 0 10px 30px rgba(0,0,0,.08);
-    --accent:#111111;
-    --accent2:#f2f2f2;
-    --radius: 22px;
-  }
-  *{ box-sizing:border-box; }
-  body{
-    margin:0;
-    font-family: system-ui, -apple-system, "Segoe UI", Arial;
-    color: var(--text);
-    background:
-      radial-gradient(900px 500px at 80% 0%, rgba(0,0,0,.03), transparent 60%),
-      radial-gradient(900px 700px at 10% 20%, rgba(0,0,0,.025), transparent 60%),
-      linear-gradient(180deg, #ffffff, #fbfbfb);
-    min-height:100vh;
-  }
-  .wrap{ width:min(980px, 92vw); margin:0 auto; padding: 28px 0 70px; }
-  header{ padding: 10px 0 18px; }
+    /* =========================
+       THEME (change colors here)
+       ========================= */
+    :root{
+      --bg0: #070A14;
+      --bg1: #0B1026;
+      --bg2: #081B2D;
 
-  .badge{
-    display:inline-flex; gap:10px; align-items:center;
-    padding: 10px 14px; border-radius: 999px;
-    background: rgba(255,255,255,.9);
-    border: 1px solid var(--stroke);
-    box-shadow: var(--shadow);
-    font-weight: 800;
-  }
-  .heart{
-    width: 12px; height: 12px; transform: rotate(45deg);
-    background:#ff4d6d; border-radius: 3px; position: relative;
-  }
-  .heart:before,.heart:after{
-    content:""; position:absolute; width:12px; height:12px;
-    background:#ff4d6d; border-radius: 50%;
-  }
-  .heart:before{ top:-6px; left:0; }
-  .heart:after{ left:-6px; top:0; }
+      --pink: #ff4d8d;
+      --violet:#8b5cf6;
+      --cyan:  #22d3ee;
+      --gold:  #ffd166;
+      --lime:  #a3ff12;
 
-  .hero{
-    margin-top: 14px;
-    padding: 26px;
-    border-radius: var(--radius);
-    background: var(--card);
-    border: 1px solid var(--stroke);
-    box-shadow: var(--shadow);
-  }
-  h1{
-    margin:0 0 10px;
-    font-size: clamp(26px, 4.2vw, 46px);
-    letter-spacing:.2px;
-  }
-  .sub{
-    font-size: clamp(14px, 2.2vw, 18px);
-    line-height: 1.85;
-    color: var(--muted);
-    margin:0 0 14px;
-  }
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
 
-  .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px; }
-  .btn{
-    border: 1px solid var(--stroke);
-    cursor:pointer;
-    border-radius: 16px;
-    padding: 12px 14px;
-    font-weight: 900;
-    font-size: 15px;
-    background: #111;
-    color: #fff;
-    box-shadow: 0 12px 20px rgba(0,0,0,.12);
-    transition: transform .12s ease, opacity .12s ease;
-  }
-  .btn:hover{ transform: translateY(-1px); opacity:.92; }
-  .btn.ghost{
-    background: #fff;
-    color:#111;
-  }
+      --glass: rgba(255,255,255,.08);
+      --glass2: rgba(255,255,255,.12);
+      --stroke: rgba(255,255,255,.14);
 
-  .grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 14px; margin-top:14px; }
-  @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } }
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 26px;
+    }
 
-  .card{
-    padding: 18px;
-    border-radius: var(--radius);
-    background: var(--card);
-    border: 1px solid var(--stroke);
-    box-shadow: var(--shadow);
-  }
-  .card h2{ margin:0 0 10px; font-size: 18px; }
-  .list{ margin:0; padding:0 18px 0 0; line-height: 1.95; color: var(--muted); }
-  .list li{ margin: 4px 0; }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial;
+      color: var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(900px 700px at 85% 10%, rgba(255,77,141,.26), transparent 60%),
+        radial-gradient(900px 700px at 15% 20%, rgba(139,92,246,.22), transparent 60%),
+        radial-gradient(1100px 800px at 50% 120%, rgba(34,211,238,.16), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 35%, var(--bg2));
+      overflow-x:hidden;
+    }
 
-  .gallery{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  @media (max-width: 560px){ .gallery{ grid-template-columns: repeat(2, 1fr); } }
+    /* Animated gradient film */
+    body::before{
+      content:"";
+      position:fixed; inset:-20%;
+      background: linear-gradient(120deg,
+        rgba(255,77,141,.18),
+        rgba(139,92,246,.16),
+        rgba(34,211,238,.14),
+        rgba(255,209,102,.12));
+      filter: blur(40px);
+      animation: drift 12s ease-in-out infinite;
+      opacity:.9;
+      z-index:-3;
+    }
+    @keyframes drift{
+      0%,100%{ transform: translate3d(-2%, -2%, 0) rotate(0deg); }
+      50%{ transform: translate3d(3%, 2%, 0) rotate(6deg); }
+    }
 
-  .ph{
-    aspect-ratio: 1 / 1;
-    border-radius: 18px;
-    overflow:hidden;
-    background: #fafafa;
-    border: 1px solid var(--stroke);
-  }
-  .ph img{ width:100%; height:100%; object-fit: cover; display:block; }
+    /* Floating blobs */
+    .blob{
+      position:fixed;
+      width: 520px; height: 520px;
+      border-radius: 999px;
+      filter: blur(55px);
+      opacity:.22;
+      z-index:-2;
+      animation: floaty 9s ease-in-out infinite;
+      pointer-events:none;
+    }
+    .b1{ background: radial-gradient(circle at 30% 30%, var(--pink), transparent 55%); top:-180px; right:-160px; }
+    .b2{ background: radial-gradient(circle at 40% 40%, var(--violet), transparent 58%); top:120px; left:-220px; animation-duration: 11s; }
+    .b3{ background: radial-gradient(circle at 50% 50%, var(--cyan), transparent 60%); bottom:-240px; right:120px; animation-duration: 13s; }
+    @keyframes floaty{
+      0%,100%{ transform: translateY(0) translateX(0) scale(1); }
+      50%{ transform: translateY(22px) translateX(-18px) scale(1.03); }
+    }
 
-  .pill{
-    display:inline-block;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: #f6f6f6;
-    border: 1px solid var(--stroke);
-    font-size: 13px;
-    font-weight: 900;
-    color: #111;
-  }
+    .wrap{
+      width:min(1100px, 92vw);
+      margin:0 auto;
+      padding: 18px 0 80px;
+    }
 
-  .choices{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
-  .choice{
-    flex: 1 1 220px;
-    background: #fff;
-    color: #111;
-    border: 1px solid var(--stroke);
-    border-radius: 20px;
-    padding: 14px;
-    cursor:pointer;
-    box-shadow: 0 12px 20px rgba(0,0,0,.08);
-    text-align:right;
-    font-weight: 900;
-    transition: transform .12s ease;
-  }
-  .choice:hover{ transform: translateY(-1px); }
-  .choice small{ display:block; margin-top:6px; font-weight:700; color: var(--muted); line-height: 1.5; }
+    /* Top nav */
+    .topbar{
+      position:sticky; top:0;
+      backdrop-filter: blur(14px);
+      background: rgba(6,8,16,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      z-index:50;
+    }
+    .topbarInner{
+      width:min(1100px, 92vw);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 0;
+      gap:10px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 900;
+      letter-spacing:.2px;
+      user-select:none;
+    }
+    .miniHeart{
+      width: 14px; height: 14px;
+      transform: rotate(45deg);
+      background: var(--pink);
+      border-radius: 3px;
+      position: relative;
+      box-shadow: 0 10px 26px rgba(255,77,141,.28);
+    }
+    .miniHeart:before,.miniHeart:after{
+      content:""; position:absolute;
+      width:14px; height:14px;
+      background: var(--pink);
+      border-radius: 50%;
+    }
+    .miniHeart:before{ top:-7px; left:0; }
+    .miniHeart:after{ left:-7px; top:0; }
 
-  .result{
-    margin-top: 12px;
-    padding: 14px;
-    border-radius: 20px;
-    background: #fff;
-    border: 1px solid var(--stroke);
-    display:none;
-  }
-  .result .row{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
+    .nav{
+      display:flex; gap:8px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      text-decoration:none;
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
 
-  footer{ margin-top: 18px; color: rgba(0,0,0,.55); font-size: 12.5px; text-align:center; }
-  a{ color: inherit; text-decoration: none; }
-</style>
+    /* Hero */
+    .hero{
+      padding: 44px 18px 22px;
+      text-align:center;
+    }
+    .title{
+      margin: 18px 0 10px;
+      font-size: clamp(34px, 6.2vw, 72px);
+      line-height: 1.02;
+      letter-spacing: .3px;
+      font-weight: 1000;
+      background: linear-gradient(90deg, #fff, rgba(255,255,255,.88), rgba(255,255,255,.98));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+    }
+    .titleGlow{
+      display:inline-block;
+      background: linear-gradient(90deg, var(--pink), var(--violet), var(--cyan), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 18px 40px rgba(255,77,141,.18));
+    }
 
+    .subtitle{
+      margin: 0 auto;
+      width:min(860px, 92vw);
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: clamp(14px, 2.3vw, 18px);
+    }
+
+    .heroCtas{
+      margin-top: 18px;
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border: 0;
+      cursor:pointer;
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-weight: 950;
+      font-size: 15px;
+      color: #0b0b0f;
+      background: linear-gradient(90deg, var(--gold), rgba(255,209,102,.85));
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); filter: brightness(1.05); }
+    .btn.secondary{
+      color: var(--text);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    /* Section / Cards */
+    .section{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+    }
+    @media (max-width: 920px){
+      .section{ grid-template-columns: 1fr; }
+      .hero{ padding-top: 22px; }
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--glass2), var(--glass));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+      transform: translateY(8px);
+      opacity: 0;
+      transition: transform .7s cubic-bezier(.2,.8,.2,1), opacity .7s ease;
+    }
+    .card.show{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(circle at 20% 20%, rgba(255,77,141,.22), transparent 50%),
+                  radial-gradient(circle at 85% 35%, rgba(34,211,238,.18), transparent 55%),
+                  radial-gradient(circle at 40% 90%, rgba(139,92,246,.16), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .card > *{ position:relative; z-index:1; }
+
+    .cardTitle{
+      margin:0 0 10px;
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: linear-gradient(90deg, var(--pink), var(--violet), var(--cyan));
+      box-shadow: 0 12px 30px rgba(255,77,141,.20);
+    }
+    .list{
+      margin:0;
+      padding: 0 18px 0 0;
+      line-height: 2.0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .list li{ margin: 6px 0; }
+
+    /* Polaroid gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 580px){
+      .gallery{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .polaroid{
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 44px rgba(0,0,0,.35);
+      overflow:hidden;
+      transform: translateY(0);
+      transition: transform .18s ease, filter .18s ease;
+      position:relative;
+    }
+    .polaroid:hover{
+      transform: translateY(-4px) scale(1.01);
+      filter: brightness(1.05);
+    }
+    .polaroid img{
+      width:100%; height: 180px;
+      object-fit: cover;
+      display:block;
+    }
+    .cap{
+      padding: 10px 12px 12px;
+      font-weight: 900;
+      font-size: 13px;
+      color: rgba(255,255,255,.85);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .cap span{
+      opacity:.85;
+      font-weight: 800;
+      color: rgba(255,255,255,.72);
+    }
+
+    /* Valentine game */
+    .pill{
+      display:inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      font-weight: 950;
+      font-size: 13px;
+      color: rgba(255,255,255,.92);
+    }
+
+    .choices{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .choice{
+      flex: 1 1 240px;
+      text-align:right;
+      cursor:pointer;
+      border-radius: 22px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 18px 44px rgba(0,0,0,.35);
+      transition: transform .14s ease, background .14s ease;
+      font-weight: 1000;
+    }
+    .choice:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.12);
+    }
+    .choice small{
+      display:block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-weight: 750;
+      line-height: 1.55;
+    }
+
+    .result{
+      display:none;
+      margin-top: 14px;
+      border-radius: 22px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+    }
+    .row{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    .wa{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-weight: 950;
+      color: #0b0b0f;
+      background: linear-gradient(90deg, var(--pink), var(--violet));
+      box-shadow: 0 18px 44px rgba(255,77,141,.18);
+      transition: transform .12s ease;
+    }
+    .wa:hover{ transform: translateY(-2px); }
+
+    .copy{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.10);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-weight: 950;
+      cursor:pointer;
+    }
+
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: rgba(255,255,255,.62);
+      font-weight: 750;
+      font-size: 12.5px;
+    }
+
+    /* Tiny floating hearts burst (created by JS) */
+    .burstHeart{
+      position:fixed;
+      width:10px; height:10px;
+      transform: rotate(45deg);
+      background: var(--pink);
+      border-radius: 2px;
+      z-index:9999;
+      pointer-events:none;
+      opacity:.95;
+      animation: pop 900ms ease-out forwards;
+      box-shadow: 0 10px 30px rgba(255,77,141,.22);
+    }
+    .burstHeart:before,.burstHeart:after{
+      content:"";
+      position:absolute;
+      width:10px; height:10px;
+      background: var(--pink);
+      border-radius:50%;
+    }
+    .burstHeart:before{ top:-5px; left:0; }
+    .burstHeart:after{ left:-5px; top:0; }
+
+    @keyframes pop{
+      0%{ transform: translate3d(0,0,0) rotate(45deg) scale(1); opacity: 1; }
+      100%{ transform: translate3d(var(--dx), var(--dy), 0) rotate(45deg) scale(.6); opacity: 0; }
+    }
+  </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="badge"><span class="heart" aria-hidden="true"></span> 5 חודשים ביחד</div>
-    </header>
 
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="topbar">
+    <div class="topbarInner">
+      <div class="brand"><span class="miniHeart" aria-hidden="true"></span> 5 חודשים</div>
+      <nav class="nav">
+        <a class="chip" href="#moments">רגעים</a>
+        <a class="chip" href="#words">מילים</a>
+        <a class="chip" href="#valentine">יום אהבה</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
     <section class="hero" id="top">
-      <h1>חמישה חודשים איתך 💛</h1>
-      <p class="sub">
-        היום זה היום שלנו.<br/>
-        גם אם לא הסתדר שניפגש—לא היה מצב שאני נותן לזה לעבור רגיל.<br/>
-        רציתי שתדעי שאני זוכר, שזה חשוב לי, ושאת חשובה לי.
+      <div class="pill">היום זה היום שלנו</div>
+
+      <h1 class="title">
+        <span class="titleGlow">5 חודשים</span> איתך 💛
+      </h1>
+
+      <p class="subtitle">
+        גם אם לא הסתדר שניפגש היום — לא היה מצב שאני נותן לזה לעבור רגיל.<br/>
+        רציתי שתדעי שאני זוכר, שזה חשוב לי, ושאת חשובה לי באמת.
       </p>
-      <div class="ctaRow">
-        <button class="btn" onclick="document.querySelector('#gallery').scrollIntoView({behavior:'smooth'})">לכמה רגעים שלנו</button>
-        <button class="btn ghost" onclick="document.querySelector('#valentine').scrollIntoView({behavior:'smooth'})">ולשאלה קטנה ל־14/2</button>
+
+      <div class="heroCtas">
+        <button class="btn" onclick="document.querySelector('#moments').scrollIntoView({behavior:'smooth'})">בואי תראי רגעים</button>
+        <button class="btn secondary" onclick="document.querySelector('#valentine').scrollIntoView({behavior:'smooth'})">ושאלה ל־14/2</button>
       </div>
     </section>
 
-    <div class="grid">
-      <section class="card">
-        <h2>כמה משפטים שאני רוצה שתזכרי</h2>
+    <section class="section">
+      <div class="card reveal" id="words">
+        <h2 class="cardTitle"><span class="dot"></span> כמה משפטים שאני רוצה שתזכרי</h2>
         <ul class="list">
-          <li>אני אוהב את איך שאת נכנסת לי ללב—בטבעיות.</li>
-          <li>אני אוהב את זה שגם כשקשה, אנחנו עדיין “אנחנו”.</li>
-          <li>ואני אוהב את זה שהקשר הזה חשוב לי באמת, לא רק בתאריכים.</li>
+          <li>אני אוהב איך שאת עושה לי שקט בראש בלי להתאמץ.</li>
+          <li>אני אוהב את הצחוקים שלנו — כאלה של “רק אנחנו”.</li>
+          <li>ואני אוהב את זה שאני לא צריך להיות מושלם לידך, רק אמיתי.</li>
         </ul>
-      </section>
+      </div>
 
-      <section class="card" id="gallery">
-        <h2>רגעים שלנו</h2>
+      <div class="card reveal" id="moments">
+        <h2 class="cardTitle"><span class="dot"></span> רגעים שלנו</h2>
+
         <div class="gallery">
-          <!-- החלף/י את קבצי התמונות לשמות אמיתיים בתוך assets/ -->
-          <div class="ph"><img src="assets/1.jpg" alt="תמונה 1" onerror="this.remove(); this.parentElement.innerHTML='<span>תמונה 1</span>';"></div>
-          <div class="ph"><img src="assets/2.jpg" alt="תמונה 2" onerror="this.remove(); this.parentElement.innerHTML='<span>תמונה 2</span>';"></div>
-          <div class="ph"><img src="assets/3.jpg" alt="תמונה 3" onerror="this.remove(); this.parentElement.innerHTML='<span>תמונה 3</span>';"></div>
-          <div class="ph"><img src="assets/4.jpg" alt="תמונה 4" onerror="this.remove(); this.parentElement.innerHTML='<span>תמונה 4</span>';"></div>
-          <div class="ph"><img src="assets/5.jpg" alt="תמונה 5" onerror="this.remove(); this.parentElement.innerHTML='<span>תמונה 5</span>';"></div>
-          <div class="ph"><img src="assets/6.jpg" alt="תמונה 6" onerror="this.remove(); this.parentElement.innerHTML='<span>תמונה 6</span>';"></div>
+          <!-- תחליף תמונות בתוך assets/ : 1.jpg ... 6.jpg -->
+          <div class="polaroid">
+            <img src="assets/1.jpg" alt="רגע 1" onerror="this.closest('.polaroid').style.display='none';">
+            <div class="cap">רגע 1 <span>💛</span></div>
+          </div>
+          <div class="polaroid">
+            <img src="assets/2.jpg" alt="רגע 2" onerror="this.closest('.polaroid').style.display='none';">
+            <div class="cap">רגע 2 <span>✨</span></div>
+          </div>
+          <div class="polaroid">
+            <img src="assets/3.jpg" alt="רגע 3" onerror="this.closest('.polaroid').style.display='none';">
+            <div class="cap">רגע 3 <span>🤍</span></div>
+          </div>
+          <div class="polaroid">
+            <img src="assets/4.jpg" alt="רגע 4" onerror="this.closest('.polaroid').style.display='none';">
+            <div class="cap">רגע 4 <span>🌙</span></div>
+          </div>
+          <div class="polaroid">
+            <img src="assets/5.jpg" alt="רגע 5" onerror="this.closest('.polaroid').style.display='none';">
+            <div class="cap">רגע 5 <span>🔥</span></div>
+          </div>
+          <div class="polaroid">
+            <img src="assets/6.jpg" alt="רגע 6" onerror="this.closest('.polaroid').style.display='none';">
+            <div class="cap">רגע 6 <span>🥂</span></div>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <section class="card val" id="valentine">
+    <section class="card reveal" id="valentine" style="margin-top:14px;">
       <div class="pill">שאלה קצרה 🎮</div>
-      <h2 style="margin-top:10px;">שבת הבאה — יום אהבה (14/2)</h2>
-      <p class="sub" style="margin:0;">
-        עוד לא מספר את כל הפרטים… אבל דבר אחד כן: בא לי שזה יהיה יום שלנו ביחד.<br/>
-        בחרי אופציה, וזה יפתח לך וואטסאפ עם “כן” מוכן לשליחה אליי 😌
+      <h2 class="cardTitle" style="margin-top:10px;"><span class="dot"></span> שבת הבאה — יום אהבה (14/2)</h2>
+
+      <p class="subtitle" style="margin:0;">
+        עוד לא מספר את כל הפרטים… אבל בא לי שזה יהיה יום שלנו ביחד.<br/>
+        תבחרי אופציה, וזה יפתח לך וואטסאפ עם “כן” מוכן לשליחה אליי 😌
       </p>
 
       <div class="choices">
@@ -215,18 +530,20 @@
           <small>תכנן לנו משהו יפה ואני איתך</small>
         </button>
         <button class="choice" data-choice="B">
-          כן אבל רק אם זה הפתעה 😉
-          <small>אל תגלה כלום תוביל אותי</small>
+          כן אבל רק אם זה הפתעה 😈
+          <small>אל תגלה כלום — תוביל אותי</small>
         </button>
       </div>
 
       <div class="result" id="resultBox" role="status" aria-live="polite">
-        <div id="resultText" style="font-weight:800;"></div>
+        <div id="resultText" style="font-weight:1000;"></div>
+
         <div class="row">
-          <a class="btn" id="waLink" href="#" target="_blank" rel="noopener">לשלוח בוואטסאפ עכשיו</a>
-          <button class="btn ghost" id="copyBtn">להעתיק טקסט</button>
+          <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">לשלוח בוואטסאפ עכשיו</a>
+          <button class="copy" id="copyBtn">להעתיק טקסט</button>
         </div>
-        <div id="copied" style="margin-top:10px; font-weight:700; opacity:.8; display:none;">הועתק ✅</div>
+
+        <div id="copied" style="margin-top:10px; font-weight:900; opacity:.85; display:none;">הועתק ✅</div>
       </div>
     </section>
 
@@ -236,8 +553,8 @@
   </div>
 
   <script>
-    // 🔧 החלף למספר שלך בפורמט בינלאומי (לישראל: 9725XXXXXXXX בלי 0)
-    const YOUR_WHATSAPP_NUMBER = "9725XXXXXXXX";
+    // ✅ שים פה את המספר שלך בפורמט בינלאומי (ישראל: 9725XXXXXXXX בלי 0)
+    const YOUR_WHATSAPP_NUMBER = "972584072750";
 
     const resultBox = document.getElementById("resultBox");
     const resultText = document.getElementById("resultText");
@@ -245,33 +562,52 @@
     const copyBtn = document.getElementById("copyBtn");
     const copied = document.getElementById("copied");
 
+    // Reveal animations on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
     function makeMessage(choice){
       const base =
 `כן ❤️
 אני רוצה ששבת הבאה (14/2) תהיה שלנו
 תפתיע אותי ותדאג להכול 😉`;
 
-      if(choice === "A"){
-        return base;
-      }
-      // B
+      if(choice === "A") return base;
       return base.replace("תפתיע אותי ותדאג להכול 😉", "אבל רק אם זה הפתעה 😈 תדאג להכול 😉");
     }
 
     function buildWaLink(message){
-      const encoded = encodeURIComponent(message);
-      // wa.me works great on mobile; opens WhatsApp if installed
-      return `https://wa.me/${+972584072750}?text=${encoded}`;
+      return `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    function burstHearts(x,y){
+      for(let i=0;i<14;i++){
+        const h = document.createElement("div");
+        h.className = "burstHeart";
+        const dx = (Math.random()*220 - 110).toFixed(0) + "px";
+        const dy = (Math.random()*-220 - 60).toFixed(0) + "px";
+        h.style.left = (x + (Math.random()*18-9)) + "px";
+        h.style.top  = (y + (Math.random()*18-9)) + "px";
+        h.style.setProperty("--dx", dx);
+        h.style.setProperty("--dy", dy);
+        document.body.appendChild(h);
+        setTimeout(()=> h.remove(), 950);
+      }
     }
 
     document.querySelectorAll(".choice").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
+      btn.addEventListener("click", (ev)=>{
         const choice = btn.dataset.choice;
         const msg = makeMessage(choice);
 
         resultText.textContent = (choice === "A")
           ? "סגרנו 💛 נשאר רק ללחוץ ולשלוח"
-          : "יאללה הפתעה 😉 נשאר רק ללחוץ ולשלוח";
+          : "יאללה הפתעה 😈 נשאר רק ללחוץ ולשלוח";
 
         waLink.href = buildWaLink(msg);
 
@@ -281,13 +617,15 @@
             copied.style.display = "block";
             setTimeout(()=> copied.style.display = "none", 1400);
           }catch(e){
-            // Fallback
             prompt("העתק את הטקסט:", msg);
           }
         };
 
         resultBox.style.display = "block";
         resultBox.scrollIntoView({behavior:"smooth", block:"center"});
+
+        const r = btn.getBoundingClientRect();
+        burstHearts(r.left + r.width/2, r.top + r.height/2);
       });
     });
   </script>
