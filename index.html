@@ -175,12 +175,21 @@
     }
 
     .subtitle{
-      margin: 0 auto;
-      width:min(860px, 92vw);
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: clamp(14px, 2.3vw, 18px);
-    }
+  margin: 0 auto;
+  width: min(860px, 92vw);
+  padding-inline: 10px;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: clamp(14px, 2.3vw, 18px);
+  text-align: center;
+
+  /* fixes for mobile RTL overflow */
+  direction: rtl;
+  unicode-bidi: plaintext;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 
     .heroCtas{
       margin-top: 18px;
@@ -630,10 +639,12 @@
         <span class="titleGlow">5 חודשים</span> איתך 💛
       </h1>
 
-      <p class="subtitle">
-        גם אם לא הסתדר שניפגש היום — לא היה מצב שאני נותן לזה לעבור רגיל.<br/>
-        רציתי שתדעי שאני זוכר, שזה חשוב לי, ושאת חשובה לי באמת.
-      </p>
+     <p class="subtitle">
+  גם אם לא הסתדר שניפגש היום —<br/>
+  לא היה מצב שאני נותן לזה לעבור רגיל.<br/>
+  רציתי שתדעי שאני זוכר, שזה חשוב לי, ושאת חשובה לי באמת.
+</p>
+
 
       <div class="heroCtas">
         <button class="btn" onclick="document.querySelector('#moments').scrollIntoView({behavior:'smooth'})">בואי תראי רגעים</button>
