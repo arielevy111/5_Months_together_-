@@ -434,6 +434,40 @@
       0%{ transform: translate3d(0,0,0) rotate(45deg) scale(1); opacity: 1; }
       100%{ transform: translate3d(var(--dx), var(--dy), 0) rotate(45deg) scale(.6); opacity: 0; }
     }
+    /* ---- Story + tags (makes it feel premium) ---- */
+.story{
+  color: var(--muted);
+  font-weight: 760;
+  line-height: 1.95;
+}
+.story .line{
+  margin: 8px 0;
+}
+.story .accent{
+  background: linear-gradient(90deg, var(--pink), var(--violet), var(--cyan), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 1000;
+}
+.tags{
+  margin-top: 12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.tag{
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 16px 40px rgba(0,0,0,.30);
+  color: rgba(255,255,255,.86);
+  font-weight: 950;
+  font-size: 13px;
+  letter-spacing: .15px;
+}
+
   </style>
 </head>
 
@@ -475,11 +509,49 @@
     <section class="section">
       <div class="card reveal" id="words">
         <h2 class="cardTitle"><span class="dot"></span> כמה משפטים שאני רוצה שתזכרי</h2>
-        <ul class="list">
-          <li>אני אוהב איך שאת עושה לי שקט בראש בלי להתאמץ.</li>
-          <li>אני אוהב את הצחוקים שלנו — כאלה של “רק אנחנו”.</li>
-          <li>ואני אוהב את זה שאני לא צריך להיות מושלם לידך, רק אמיתי.</li>
-        </ul>
+        <div class="story">
+  <div class="line">עברנו כבר <span class="accent">5 חודשים</span> ביחד — מלאים בהרפתקאות.</div>
+
+  <div class="line">
+    זה התחיל ב<span class="accent">קפריסין</span>:
+    בית חב״ד, טרקטורונים, מועדון,
+    ובר עם ריקוד על עמוד 😛
+  </div>
+
+  <div class="line">ראיתי אותך ולא הצלחתי להפסיק לחשוב עלייך.</div>
+
+  <div class="line">
+    שיחות עומק, לב טוב,
+    והיופי עם <span class="accent">הצמה</span> שנראתה עלייך כמו כתר 👑
+  </div>
+
+  <div class="line">חזרנו לארץ — ומשם הכול קרה כל כך מהר.</div>
+
+  <div class="tags" aria-label="הרפתקאות שלנו">
+    <span class="tag">קמפינג בכנרת</span>
+    <span class="tag">נחל הבניאס</span>
+    <span class="tag">לילות בתל אביב</span>
+    <span class="tag">ירושלים המטורפת</span>
+    <span class="tag">טניס</span>
+    <span class="tag">סנוקר</span>
+    <span class="tag">ים בנתניה</span>
+    <span class="tag">הכיכר</span>
+    <span class="tag">אח״י אילת</span>
+    <span class="tag">הקריות + חיפה</span>
+    <span class="tag">טיילת קריית ים</span>
+    <span class="tag">נסיעות עם שירים</span>
+    <span class="tag">משפחה + חברים</span>
+    <span class="tag">פסטות/סושי/המבורגר</span>
+    <span class="tag">עגלות קפה בבוקר</span>
+    <span class="tag">לבשל יחד</span>
+    <span class="tag">ציורים ואמנות</span>
+  </div>
+
+  <div class="line" style="margin-top:12px; color: rgba(255,255,255,.86); font-weight: 900;">
+    וכמה שלא נכתוב — זה עדיין לא מתקרב למה שאני מרגיש לידך.
+  </div>
+</div>
+
       </div>
 
       <div class="card reveal" id="moments">
